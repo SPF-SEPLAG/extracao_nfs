@@ -1,0 +1,55 @@
+{
+    "AccessToken": {
+        "0efa70d0-1868-478b-aef1-07cfdccd8ff4.e5d3ae7c-9b38-48de-a087-f6734a287574-login.microsoftonline.com-accesstoken-d44a05d5-c6a5-4bbb-82d2-443123722380-e5d3ae7c-9b38-48de-a087-f6734a287574-https://cecad365.sharepoint.com/.default https://cecad365.sharepoint.com/directory.read.all https://cecad365.sharepoint.com/files.readwrite.all https://cecad365.sharepoint.com/group.readwrite.all https://cecad365.sharepoint.com/mail.readwrite https://cecad365.sharepoint.com/mail.send https://cecad365.sharepoint.com/sites.manage.all https://cecad365.sharepoint.com/sites.readwrite.all https://cecad365.sharepoint.com/user.read": {
+            "credential_type": "AccessToken",
+            "secret": "eyJ0eXAiOiJKV1QiLCJub25jZSI6ImdvMWJqOTFkNGtTaEJaQW5Yd2JZd1VLbkxHakVNZjJMSFpxNFJUbzd2OXMiLCJhbGciOiJSUzI1NiIsIng1dCI6IkNOdjBPSTNSd3FsSEZFVm5hb01Bc2hDSDJYRSIsImtpZCI6IkNOdjBPSTNSd3FsSEZFVm5hb01Bc2hDSDJYRSJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9lNWQzYWU3Yy05YjM4LTQ4ZGUtYTA4Ny1mNjczNGEyODc1NzQvIiwiaWF0IjoxNzQ5NzM5MDQ2LCJuYmYiOjE3NDk3MzkwNDYsImV4cCI6MTc0OTc0MzkwNiwiYWNjdCI6MCwiYWNyIjoiMSIsImFjcnMiOlsicDEiXSwiYWlvIjoiQVhRQWkvOFpBQUFBb3MzbFd3MTNTMExUa3I3YWozbkQrZnhmREQyZlIxSmJyZkV6Z0ZXbnY4NTFFZUxlWXlLd05qV1BHSXU0Y0J1QWpBK3NZTGJRMnlpNFk0NFRPelluMERPYmJiT3RCbFJRcVpveDNKNEliUEN2WnhNSDNVamlwY1BTRlRRZGpOWGgrdTVtWDBIVVpENVlPUC9zVS9tVE5nPT0iLCJhbXIiOlsicHdkIiwicnNhIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IkF6dXJlUi9NaWNyb3NvZnQzNjVSIiwiYXBwaWQiOiJkNDRhMDVkNS1jNmE1LTRiYmItODJkMi00NDMxMjM3MjIzODAiLCJhcHBpZGFjciI6IjAiLCJkZXZpY2VpZCI6IjZhZDRmZDA2LTI3OTItNDAzYy04ODE1LTk0ZDdkOTRjZTE3OSIsImZhbWlseV9uYW1lIjoiRmVsaXBlIER1dmFsIERhIENydXoiLCJnaXZlbl9uYW1lIjoiTHVpeiIsImlkdHlwIjoidXNlciIsImlwYWRkciI6IjIwMC4xOTguMzEuMTU2IiwibmFtZSI6Ikx1aXogRmVsaXBlIER1dmFsIERhIENydXoiLCJvaWQiOiIwZWZhNzBkMC0xODY4LTQ3OGItYWVmMS0wN2NmZGNjZDhmZjQiLCJvbnByZW1fc2lkIjoiUy0xLTUtMjEtMjU0MDA0MTE2NS04OTgxMzYwMzAtNTQ4ODM0MzI1LTI1ODA5MiIsInB1aWQiOiIxMDAzMjAwNDU4MEMyRjMxIiwicmgiOiIxLkFWQUFmSzdUNVRpYjNraWdoX1p6U2loMWRBTUFBQUFBQVBFUHpnQUFBQUFBQUFCUUFLZFFBQS4iLCJzY3AiOiJEaXJlY3RvcnkuUmVhZC5BbGwgRmlsZXMuUmVhZFdyaXRlLkFsbCBHcm91cC5SZWFkV3JpdGUuQWxsIE1haWwuUmVhZFdyaXRlIE1haWwuU2VuZCBTaXRlcy5NYW5hZ2UuQWxsIFNpdGVzLlJlYWRXcml0ZS5BbGwgVXNlci5SZWFkIiwic2lkIjoiMDA1YzU4YjktNGFkMS0xNmY1LTlmODMtZWJkZGI3NjRmZTEyIiwic2lnbmluX3N0YXRlIjpbImR2Y19tbmdkIiwiZHZjX2RtamQiLCJrbXNpIl0sInN1YiI6ImxmaUhZREV0U0VDYTB4Ni16bjlPNW9CWVhQdUt5XzZDSl9ReE9XM1U0VEkiLCJ0aWQiOiJlNWQzYWU3Yy05YjM4LTQ4ZGUtYTA4Ny1mNjczNGEyODc1NzQiLCJ1bmlxdWVfbmFtZSI6IlgxNzE4NzI3MjY3N0BjYS5tZy5nb3YuYnIiLCJ1cG4iOiJYMTcxODcyNzI2NzdAY2EubWcuZ292LmJyIiwidXRpIjoiek9UWEZsUUVkRUtJbjZvUDE1Wm1BQSIsInZlciI6IjEuMCIsIndpZHMiOlsiYjc5ZmJmNGQtM2VmOS00Njg5LTgxNDMtNzZiMTk0ZTg1NTA5Il0sInhtc19mdGQiOiJUWm1ycnVLY0E2RW9vU2lEblEtcU1JZUVza3JZVkxQc1VOR1ZLRmxsVXY0QmRYTjNaWE4wTXkxa2MyMXoiLCJ4bXNfaWRyZWwiOiIxIDIwIiwieG1zX3BmdGV4cCI6MTc0OTgzMDMwNn0.EgUY9a7tRo37tRv3X4-FUlUxsftMMSJRMvKJro4XI-Ztw4w9R_5IbPROe5vJoHmmATpph7dc-vJQX8Fl8DoRmSG92mqtyt0yu1hITmCb7LsPgsliNUORkvNQpjVr6xW0cDj1dPmYPaKYTcp0ALaotMEsV7LzsMeixpALUlXfn7rOl4vQ-xWS941US0Sm_nM84K1V6wSIlnrYNkFqYCubGOxLFci7XYCIyUp7ujAgrc1yH4QWTGV_mJssC-Q09VFG2FSo1xRc5Iq4ILqJzn_GrWZzMvLFoJO8meljWl4-7lyMsrroXTcPjJ5xl4mYXf94TRKLmpEx-KR6OicAEmhq_g",
+            "home_account_id": "0efa70d0-1868-478b-aef1-07cfdccd8ff4.e5d3ae7c-9b38-48de-a087-f6734a287574",
+            "environment": "login.microsoftonline.com",
+            "client_id": "d44a05d5-c6a5-4bbb-82d2-443123722380",
+            "target": "https://cecad365.sharepoint.com/.default https://cecad365.sharepoint.com/Directory.Read.All https://cecad365.sharepoint.com/Files.ReadWrite.All https://cecad365.sharepoint.com/Group.ReadWrite.All https://cecad365.sharepoint.com/Mail.ReadWrite https://cecad365.sharepoint.com/Mail.Send https://cecad365.sharepoint.com/Sites.Manage.All https://cecad365.sharepoint.com/Sites.ReadWrite.All https://cecad365.sharepoint.com/User.Read",
+            "realm": "e5d3ae7c-9b38-48de-a087-f6734a287574",
+            "token_type": "Bearer",
+            "cached_at": "1749739348",
+            "expires_on": "1749743905",
+            "extended_expires_on": "1749743905"
+        }
+    },
+    "Account": {
+        "0efa70d0-1868-478b-aef1-07cfdccd8ff4.e5d3ae7c-9b38-48de-a087-f6734a287574-login.microsoftonline.com-e5d3ae7c-9b38-48de-a087-f6734a287574": {
+            "home_account_id": "0efa70d0-1868-478b-aef1-07cfdccd8ff4.e5d3ae7c-9b38-48de-a087-f6734a287574",
+            "environment": "login.microsoftonline.com",
+            "realm": "e5d3ae7c-9b38-48de-a087-f6734a287574",
+            "local_account_id": "0efa70d0-1868-478b-aef1-07cfdccd8ff4",
+            "username": "X17187272677@ca.mg.gov.br",
+            "authority_type": "MSSTS",
+            "account_source": "authorization_code"
+        }
+    },
+    "IdToken": {
+        "0efa70d0-1868-478b-aef1-07cfdccd8ff4.e5d3ae7c-9b38-48de-a087-f6734a287574-login.microsoftonline.com-idtoken-d44a05d5-c6a5-4bbb-82d2-443123722380-e5d3ae7c-9b38-48de-a087-f6734a287574-": {
+            "credential_type": "IdToken",
+            "secret": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkNOdjBPSTNSd3FsSEZFVm5hb01Bc2hDSDJYRSJ9.eyJhdWQiOiJkNDRhMDVkNS1jNmE1LTRiYmItODJkMi00NDMxMjM3MjIzODAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vZTVkM2FlN2MtOWIzOC00OGRlLWEwODctZjY3MzRhMjg3NTc0L3YyLjAiLCJpYXQiOjE3NDk3MzkwNDYsIm5iZiI6MTc0OTczOTA0NiwiZXhwIjoxNzQ5NzQyOTQ2LCJuYW1lIjoiTHVpeiBGZWxpcGUgRHV2YWwgRGEgQ3J1eiIsIm5vbmNlIjoiNGE2ZmRiNzRlNjk1Yjg1NDczZWViMzA2MDE2NDZlYzFkZTllMTczNTdmMWMyODM3ZTIxMDBmMzU2ZGM3MzM4YiIsIm9pZCI6IjBlZmE3MGQwLTE4NjgtNDc4Yi1hZWYxLTA3Y2ZkY2NkOGZmNCIsInByZWZlcnJlZF91c2VybmFtZSI6IlgxNzE4NzI3MjY3N0BjYS5tZy5nb3YuYnIiLCJyaCI6IjEuQVZBQWZLN1Q1VGliM2tpZ2hfWnpTaWgxZE5VRlN0U2x4cnRMZ3RKRU1TTnlJNEJRQUtkUUFBLiIsInNpZCI6IjAwNWM1OGI5LTRhZDEtMTZmNS05ZjgzLWViZGRiNzY0ZmUxMiIsInN1YiI6IlBKTUFNcmNHc0VrZm8yNURjVE9LbWxfWXlCYXZWVkJDYmxITkNKd0hwRlUiLCJ0aWQiOiJlNWQzYWU3Yy05YjM4LTQ4ZGUtYTA4Ny1mNjczNGEyODc1NzQiLCJ1dGkiOiJ6T1RYRmxRRWRFS0luNm9QMTVabUFBIiwidmVyIjoiMi4wIn0.DQ7kdoS1Fk_-DjbjMcBGKVvbdiKH1BFrsOeU1CXor9xERxXePMm_gFZk2CHOG-iAfYt1diLqez5qL4dkkvM_qTf348Z6KhtqZSrpXv9Z9Kd6cqYk41BLo7fiFehiYFhZdylOLta3QAQka1dvtBRE7PBuLno8sCcTibLd90leLVfd1oHGNqDOFYTOD-91DMQylCSTP8zOSKJUc0yVzJBu9Gv0nj5ew6GukQ22XOKdWPoXlepMsklgmLUJLa9iJw75k_AVhgwsAEUe0o_cRQolLoKby9KX3kVgV1iOut4ptMpFm5_iKinRvfKfHUCj8Is32meGz8HgWKt-JPJUbsejoA",
+            "home_account_id": "0efa70d0-1868-478b-aef1-07cfdccd8ff4.e5d3ae7c-9b38-48de-a087-f6734a287574",
+            "environment": "login.microsoftonline.com",
+            "realm": "e5d3ae7c-9b38-48de-a087-f6734a287574",
+            "client_id": "d44a05d5-c6a5-4bbb-82d2-443123722380"
+        }
+    },
+    "RefreshToken": {
+        "0efa70d0-1868-478b-aef1-07cfdccd8ff4.e5d3ae7c-9b38-48de-a087-f6734a287574-login.microsoftonline.com-refreshtoken-d44a05d5-c6a5-4bbb-82d2-443123722380--https://cecad365.sharepoint.com/.default https://cecad365.sharepoint.com/directory.read.all https://cecad365.sharepoint.com/files.readwrite.all https://cecad365.sharepoint.com/group.readwrite.all https://cecad365.sharepoint.com/mail.readwrite https://cecad365.sharepoint.com/mail.send https://cecad365.sharepoint.com/sites.manage.all https://cecad365.sharepoint.com/sites.readwrite.all https://cecad365.sharepoint.com/user.read": {
+            "credential_type": "RefreshToken",
+            "secret": "1.AVAAfK7T5Tib3kigh_ZzSih1dNUFStSlxrtLgtJEMSNyI4BQAKdQAA.AgABAwEAAABVrSpeuWamRam2jAF1XRQEAwDs_wUA9P-VGjKR6OkdEK1ylS2uy3o0XbE_LKRTUhZpfQSomImorJVWQjIotXUKKhUB2r8wYFcRQkjS0-0Nd5WtAvebiJ1YHXIVdmvhJ6mKldBbP1hsjC3Reg92EuzKw20XmUzfG02gwCs6eoGIQOI_62zeqIP6NvUl-yH4HTSd-_CphnmXNdr9LQG6ogJWXENH0DV4l1K1eTRTdGSXUFs-D-yUw6L8Sa64YDAWKyrIMSkrPaWU3LLZBqwJRWqXOYO5WGeAlMgXHzF5FW_x9g3JNxPldD4f9SPSrvVNam3laMfwJkrlD5_dnjW_xFh5RaaZfdniBGNSejDDO4r5NU_j8IRJL4KtvL_Fk3kfhcHwRSKFrVsM-LKpmgnnA_BHuXdvpesKp9YpaC7SOC_fJPmNuOeIWcTwa87P-LroV5DhzZMg_f04D0XJRpYqbNV7EpgFdp41Uc69rb-a-t3pBy0wUTSNyV7pw3KkAlODwM_fUQvVENorseAanqjAH7wCPp4t_fifPaGKBjbz1daTka4vqk7AmIxiZp8rjuQGJ_ed65XaPXnrMYEQLJHFtMZ8qi-4aHXv_7ITCxWX6S0LD-BWL0A65e4Ltw46WjKSnJHmAAaIhaXqQMQV5n91tsQ66d2IQa0rhLe1rWiKhMCo_ED50crZt0Gg4IT9xrVSFnKuuHxSTkJyFveBMXTLoHUU7lFz8r1II59w5U2VfJGdfi4EHYER93VZGaFbHOejRUJvhtnVDN1X0otR1kRE-eUpFDCy9HwBlHmOu-_7qtDs9cy0B0NdNG-CzuSte1fC6viQzSlYRq2HCiVnP_HlpGrWhEC3WhE6hgdnr54v7kzVy8cGqv-SafsJDwyOVgvfPJl8qQDHQVy-si0ludwWnVw8WTXgiyoCEEINAr460HWLoCKDbQoudrknDVkG7mEjSWhUnVMgSUfgcOuOceiiJUKeleLlmghwUBqmky3hwjUZ7pg-Nc29tXXljQMjgfJAVQ8qXb0TZ3jHzZKjDWvQTnB9QJinvNQD88G-ijgfbMbJcJOSf2SJ4OBNaC1N_Dc4YUEecq2ROcriPNxRC_lQHv6o_0LN6eBi8-IYNoFdrwKMLMx5noM8VzcG8ssnylGP",
+            "home_account_id": "0efa70d0-1868-478b-aef1-07cfdccd8ff4.e5d3ae7c-9b38-48de-a087-f6734a287574",
+            "environment": "login.microsoftonline.com",
+            "client_id": "d44a05d5-c6a5-4bbb-82d2-443123722380",
+            "target": "https://cecad365.sharepoint.com/.default https://cecad365.sharepoint.com/Directory.Read.All https://cecad365.sharepoint.com/Files.ReadWrite.All https://cecad365.sharepoint.com/Group.ReadWrite.All https://cecad365.sharepoint.com/Mail.ReadWrite https://cecad365.sharepoint.com/Mail.Send https://cecad365.sharepoint.com/Sites.Manage.All https://cecad365.sharepoint.com/Sites.ReadWrite.All https://cecad365.sharepoint.com/User.Read",
+            "last_modification_time": "1749739348"
+        }
+    },
+    "AppMetadata": {
+        "appmetadata-login.microsoftonline.com-d44a05d5-c6a5-4bbb-82d2-443123722380": {
+            "client_id": "d44a05d5-c6a5-4bbb-82d2-443123722380",
+            "environment": "login.microsoftonline.com"
+        }
+    }
+}
