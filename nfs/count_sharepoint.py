@@ -1,4 +1,4 @@
-from count_list_sharepoint_utils import count_files_in_sharepoint_folder
+from sharepoint_utils import count_files_in_sharepoint_folder
 
 base_url = "https://cecad365.sharepoint.com/sites/AutomatizacoesSPF"
 folder_path = "/sites/AutomatizacoesSPF/Documentos Compartilhados/General/teste automação notas fiscais/notas fiscais"

@@ -1,150 +1,157 @@
-import os, msal, pickle
+import os
+import msal
+import time
+import requests
 from pathlib import Path
 
-import requests
-
-config = {
-  "authority": "https://login.microsoftonline.com/e5d3ae7c-9b38-48de-a087-f6734a287574",
-  "client_id": "d44a05d5-c6a5-4bbb-82d2-443123722380",
-  "scope": ["https://cecad365.sharepoint.com/.default"], #["Group.ReadWrite.All"],
-  "username": "x17187272677@ca.mg.gov.br",
-  "endpoint": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
-}
-
+# === CONFIGURAÇÕES DE AUTENTICAÇÃO ===
 CACHE_FILE = "msal_cache.bin"
 
-def get_sharepoint_token():
-    # ✅ Load or create token cache
+config = {
+    "authority": "https://login.microsoftonline.com/e5d3ae7c-9b38-48de-a087-f6734a287574",
+    "client_id": "d44a05d5-c6a5-4bbb-82d2-443123722380",
+    "username": "x17187272677@ca.mg.gov.br"
+}
+
+def get_token(scope: str):
+    """
+    Obtém um token de acesso para o escopo especificado (SharePoint ou Flow).
+    """
     cache = msal.SerializableTokenCache()
     if os.path.exists(CACHE_FILE):
         cache.deserialize(open(CACHE_FILE, "r").read())
 
     app = msal.PublicClientApplication(
-        config["client_id"], authority=config["authority"], token_cache=cache
-        )
+        config["client_id"],
+        authority=config["authority"],
+        token_cache=cache
+    )
 
-    # initialize result variable to hole the token response
-    result = None 
-
-    # We now check the cache to see
-    # whether we already have some accounts that the end user already used to sign in before.
-    accounts = app.get_accounts(username=config.get("username"))
-    print(accounts)
-
-    if accounts:
-        result = app.acquire_token_silent(config["scope"], account=accounts[0])
+    accounts = app.get_accounts(username=config["username"])
+    result = app.acquire_token_silent([scope], account=accounts[0]) if accounts else None
 
     if not result:
-        # So no suitable token exists in cache. Let's get a new one from Azure AD.
-        result = app.acquire_token_interactive(scopes=config["scope"])
+        result = app.acquire_token_interactive(scopes=[scope])
 
-    # ✅ Save updated cache
     if cache.has_state_changed:
         with open(CACHE_FILE, "w") as f:
             f.write(cache.serialize())
-        print("💾 Token cache saved.")
-    
+        print("💾 Cache MSAL atualizado.")
+
     if "access_token" in result:
-        #print(result)  # Yay!
-        return result
+        return result["access_token"]
     else:
+        print("❌ Erro ao obter token:")
         print(result.get("error"))
         print(result.get("error_description"))
-        print(result.get("correlation_id"))  # You may need this when reporting a bug
-
+        return None
 
 def download_sharepoint_file(base_url, folder_path, file_name, local_filename):
-    """
-    Downloads a file from SharePoint using dynamic components for the URL.
-
-    Args:
-        base_url (str): The base SharePoint site URL (e.g., 'https://cecad365.sharepoint.com/sites/Splor').
-        folder_path (str): The relative path to the folder containing the file (e.g., '/Documentos Compartilhados/General').
-        file_name (str): The name of the file to download (e.g., 'datamart.xlsx').
-        local_filename (str): The local path where the file will be saved.
-
-    Returns:
-        bool: True if the file was downloaded successfully, False otherwise.
-    """
-    # Construct the file URL
     relative_url = f"{folder_path}/{file_name}".replace(" ", "%20")
     file_url = f"{base_url}/_api/web/GetFileByServerRelativeUrl('{relative_url}')/$value"
 
-    # Acquire token using the utility function
-    result = get_sharepoint_token()
-
-    if result and "access_token" in result:
-        print("Access token acquired.")
-        # Download the file
-        response = requests.get(
-            file_url,
-            headers={'Authorization': 'Bearer ' + result['access_token']},
-            stream=True  # Enable streaming
-        )
-        if response.status_code == 200:
-            # Save the file locally in chunks
-
-            Path(local_filename).parent.mkdir(parents=True, exist_ok=True)
-            with open(local_filename, 'wb') as file:
-                for chunk in response.iter_content(chunk_size=8192):
-                    file.write(chunk)
-            print(f"File downloaded successfully as {local_filename}")
-            return True
-        else:
-            print(f"Failed to download the file. Status code: {response.status_code}")
-            print(response.text)
-            return False
-    else:
-        print("Failed to acquire an access token.")
+    access_token = get_token("https://cecad365.sharepoint.com/.default")
+    if not access_token:
         return False
 
+    response = requests.get(
+        file_url,
+        headers={'Authorization': f"Bearer {access_token}"},
+        stream=True
+    )
+
+    if response.status_code == 200:
+        Path(local_filename).parent.mkdir(parents=True, exist_ok=True)
+        with open(local_filename, 'wb') as file:
+            for chunk in response.iter_content(chunk_size=8192):
+                file.write(chunk)
+        print(f"📥 Arquivo salvo em: {local_filename}")
+        return True
+    else:
+        print(f"❌ Erro ao baixar arquivo: {response.status_code}")
+        print(response.text)
+        return False
 
 def upload_sharepoint_file(base_url, folder_path, file_name, local_filename):
-    """
-    Uploads a file to SharePoint using dynamic components for the URL.
-    If the file already exists, it will be overwritten.
-
-    Args:
-        base_url (str): The base SharePoint site URL (e.g., 'https://cecad365.sharepoint.com/sites/Splor').
-        folder_path (str): The relative path to the folder where the file will be uploaded (e.g., '/Documentos Compartilhados/General').
-        file_name (str): The name of the file to upload (e.g., 'datamart.txt').
-        local_filename (str): The local path of the file to upload.
-
-    Returns:
-        bool: True if the file was uploaded successfully, False otherwise.
-    """
-    # Construct the upload URL
     upload_url = f"{base_url}/_api/web/GetFolderByServerRelativeUrl('{folder_path}')/Files/add(url='{file_name}',overwrite=true)"
-
-    # Acquire token using the utility function
-    result = get_sharepoint_token()
-
-    if result and "access_token" in result:
-        print("Access token acquired.")
-        # Read the local file content to upload
-        with open(local_filename, 'rb') as file:
-            file_content = file.read()
-
-        # Upload the file with raw binary data
-        headers = {
-            'Authorization': 'Bearer ' + result['access_token'],
-            'Accept': 'application/json',
-            'Content-Type': 'application/octet-stream'  # Content type for raw binary data
-        }
-
-        response = requests.post(
-            upload_url,
-            headers=headers,
-            data=file_content  # Send the raw binary data as the body
-        )
-
-        if response.status_code in [200, 201]:
-            print(f"File uploaded successfully to {folder_path}/{file_name}")
-            return True
-        else:
-            print(f"Failed to upload the file. Status code: {response.status_code}")
-            print(response.text)
-            return False
-    else:
-        print("Failed to acquire an access token.")
+    access_token = get_token("https://cecad365.sharepoint.com/.default")
+    if not access_token:
         return False
+
+    with open(local_filename, 'rb') as file:
+        file_content = file.read()
+
+    headers = {
+        'Authorization': f"Bearer {access_token}",
+        'Accept': 'application/json',
+        'Content-Type': 'application/octet-stream'
+    }
+
+    response = requests.post(
+        upload_url,
+        headers=headers,
+        data=file_content
+    )
+
+    if response.status_code in [200, 201]:
+        print(f"📤 Arquivo enviado: {file_name}")
+        return True
+    else:
+        print(f"❌ Erro ao enviar arquivo: {response.status_code}")
+        print(response.text)
+        return False
+
+def count_files_in_sharepoint_folder(base_url, folder_path):
+    access_token = get_token("https://cecad365.sharepoint.com/.default")
+    if not access_token:
+        return 0
+
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Accept": "application/json;odata=verbose"
+    }
+
+    endpoint = f"{base_url}/_api/web/GetFolderByServerRelativeUrl('{folder_path}')/Files"
+    response = requests.get(endpoint, headers=headers)
+
+    if response.status_code == 200:
+        files = response.json()['d']['results']
+        for file in files:
+            print(f"📄 {file['Name']}")
+        print(f"📁 Total de arquivos em '{folder_path}': {len(files)}")
+        return len(files)
+    else:
+        print(f"❌ Erro {response.status_code} ao acessar a pasta")
+        print(response.text)
+        return 0
+
+def verificar_status_fluxo_com_runid(run_id, flow_id, environment_id, access_token, intervalo_segundos=5):
+    url = f"https://management.azure.com/providers/Microsoft.ProcessSimple/environments/{environment_id}/flows/{flow_id}/runs/{run_id}?api-version=2016-11-01"
+
+    headers = {
+        "Authorization": f"Bearer {access_token}"
+    }
+
+    while True:
+        response = requests.get(url, headers=headers)
+
+        if response.status_code != 200:
+            print(f"❌ Erro ao consultar o status da execução ({response.status_code})")
+            print(response.text)
+            break
+
+        data = response.json()
+        status = data["properties"]["status"]
+        start_time = data["properties"].get("startTime")
+
+        print(f"⏳ Execução iniciada em {start_time} — Status atual: {status}")
+
+        if status == "Succeeded":
+            print("✅ Execução concluída com sucesso!")
+            return True
+        elif status == "Failed":
+            raise Exception("❌ A execução do fluxo falhou!")
+        elif status == "Cancelled":
+            raise Exception("⚠️ Execução cancelada!")
+        else:
+            time.sleep(intervalo_segundos)
