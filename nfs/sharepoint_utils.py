@@ -13,7 +13,7 @@ config = {
     "username": "x17187272677@ca.mg.gov.br"
 }
 
-def get_token(scope: str):
+def get_sharepoint_token(scope: str):
     """
     Obtém um token de acesso para o escopo especificado (SharePoint ou Flow).
     """
@@ -50,7 +50,7 @@ def download_sharepoint_file(base_url, folder_path, file_name, local_filename):
     relative_url = f"{folder_path}/{file_name}".replace(" ", "%20")
     file_url = f"{base_url}/_api/web/GetFileByServerRelativeUrl('{relative_url}')/$value"
 
-    access_token = get_token("https://cecad365.sharepoint.com/.default")
+    access_token = get_sharepoint_token("https://cecad365.sharepoint.com/.default")
     if not access_token:
         return False
 
@@ -74,7 +74,7 @@ def download_sharepoint_file(base_url, folder_path, file_name, local_filename):
 
 def upload_sharepoint_file(base_url, folder_path, file_name, local_filename):
     upload_url = f"{base_url}/_api/web/GetFolderByServerRelativeUrl('{folder_path}')/Files/add(url='{file_name}',overwrite=true)"
-    access_token = get_token("https://cecad365.sharepoint.com/.default")
+    access_token = get_sharepoint_token("https://cecad365.sharepoint.com/.default")
     if not access_token:
         return False
 
@@ -102,7 +102,7 @@ def upload_sharepoint_file(base_url, folder_path, file_name, local_filename):
         return False
 
 def count_files_in_sharepoint_folder(base_url, folder_path):
-    access_token = get_token("https://cecad365.sharepoint.com/.default")
+    access_token = get_sharepoint_token("https://cecad365.sharepoint.com/.default")
     if not access_token:
         return 0
 
